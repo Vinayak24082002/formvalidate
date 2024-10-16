@@ -19,12 +19,20 @@ const confirmpassInput = document.getElementById("confirmPassword-input");
 const confirmpassError = document.getElementById("confirmPassword-error");
 
 function togglePasswordVisibility(inputField, toggleElement) {
+   const eyeIcon = toggleElement.querySelector('i'); // Find the existing icon inside the button
+
   if (inputField.type === "password") {
     inputField.type = "text";
-    toggleElement.textContent = "Hide Password";
+    if (eyeIcon) {
+      eyeIcon.classList.remove('fa-eye');
+      eyeIcon.classList.add('fa-eye-slash');
+    }
   } else {
     inputField.type = "password";
-    toggleElement.textContent = "Show Password";
+    if (eyeIcon) {
+      eyeIcon.classList.remove('fa-eye-slash');
+      eyeIcon.classList.add('fa-eye');
+    }
   }
 }
 
